@@ -31,7 +31,7 @@ namespace Blogy.BusinessLayer.Concrete
             }
         }
 
-        public Article TGetById(int id)
+		public Article TGetById(int id)
         {
             // eğer id değerine göre yetkisi varsa
             return _articleDal.GetById(id);
@@ -44,26 +44,27 @@ namespace Blogy.BusinessLayer.Concrete
 
         public void TInsert(Article entity)
         {
-            if(entity.Title!= null && entity.Description.Length>50 && entity.CategoryId >=0)
-            {
-                _articleDal.Insert(entity);
-            }
-            else
-            {
-                //hata mesajı
-            }
+            _articleDal.Insert(entity);
         }
 
         public void TUpdate(Article entity)
         {
-            if (entity.Title!= null && entity.Description.Length > 50 && entity.CategoryId >= 0)
-            {
-                _articleDal.Update(entity);
-            }
-            else
-            {
-                //hata mesajı
-            }
+            _articleDal.Update(entity);
+        }
+
+		public List<Article> TGetArticleWithWriter()
+		{
+			return _articleDal.GetArticleWithWriter();
+		}
+
+        public Writer TGetWriterInfoByArticleWriter(int id)
+        {
+            return _articleDal.GetWriterInfoByArticleWriter(id);
+        }
+
+        public List<Article> TGetArticlesByWriter(int id)
+        {
+            return _articleDal.GetArticlesByWriter(id);
         }
     }
 }

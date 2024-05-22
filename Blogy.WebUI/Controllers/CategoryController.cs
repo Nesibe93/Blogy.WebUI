@@ -1,5 +1,5 @@
 ﻿using Blogy.BusinessLayer.Abstract;
-using Blogy.EntityLayer.Concreate;
+using Blogy.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WebUI.Controllers

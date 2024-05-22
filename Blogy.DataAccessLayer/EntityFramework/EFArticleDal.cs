@@ -1,7 +1,7 @@
 ﻿using Blogy.DataAccessLayer.Abstract;
 using Blogy.DataAccessLayer.Context;
 using Blogy.DataAccessLayer.Repository;
-using Blogy.EntityLayer.Concreate;
+using Blogy.EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,10 +15,24 @@ namespace Blogy.DataAccessLayer.EntityFramework
 	{
 		BlogyContext context = new BlogyContext();
 
+        public List<Article> GetArticleFilterList(string search)
+        {
+            var values = context.Articles.Where(x => 
+			x.Title.ToLower().Contains(search.ToLower()) || 
+			x.Description.ToLower().Contains(search.ToLower())).Include(x => x.Writer).ToList();
+            return values;
+        }
+
         public List<Article> GetArticlesByWriter(int id)
         {
             var values = context.Articles.Where(x=>x.AppUserId == id).ToList();
 			return values;
+        }
+
+        public List<Article> GetArticlesByWriterAndCategory(int id)
+        {
+            var values = context.Articles.Where(x => x.AppUserId == id).Include(x => x.Category).ToList();
+            return values;
         }
 
         public List<Article> GetArticleWithWriter()

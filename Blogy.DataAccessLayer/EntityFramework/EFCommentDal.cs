@@ -1,7 +1,7 @@
 ﻿using Blogy.DataAccessLayer.Abstract;
 using Blogy.DataAccessLayer.Context;
 using Blogy.DataAccessLayer.Repository;
-using Blogy.EntityLayer.Concreate;
+using Blogy.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;

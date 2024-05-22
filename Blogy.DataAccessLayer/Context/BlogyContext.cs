@@ -1,5 +1,4 @@
-﻿using Blogy.EntityLayer.Concreate;
-using Blogy.EntityLayer.Concrete;
+﻿using Blogy.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,5 +21,9 @@ namespace Blogy.DataAccessLayer.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
+       // public DbSet<AppUser> AppUsers { get; set; }
     }
 }

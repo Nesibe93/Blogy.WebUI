@@ -1,70 +1,16 @@
-﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-        <a class="sidebar-brand brand-logo" href="../../index.html"><img src="~/Breeze-Free-Bootstrap-Admin-Template-master/template/assets/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="../../index.html"><img src="~/Breeze-Free-Bootstrap-Admin-Template-master/template/assets/images/logo-mini.svg" alt="logo" /></a>
-    </div>
-    <ul class="nav">
-        <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                    <img src="~/Breeze-Free-Bootstrap-Admin-Template-master/template/assets/images/faces/face1.jpg" alt="profile" />
-                    <span class="login-status online"></span>
-                    <!--change to offline or busy as needed-->
-                </div>
-                <div class="nav-profile-text d-flex flex-column pr-3">
-                    <span class="font-weight-medium mb-2">Henry Klein</span>
-                    <span class="font-weight-normal">$8,753.00</span>
-                </div>
-                <span class="badge badge-danger text-white ml-3 rounded">3</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-dashboard-20.png" /></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-blog-20.png" /></i>
-                <span class="menu-title">Bloglarım</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-tools-20.png" /></i>
-                <span class="menu-title">Destek</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-message-20.png" /></i>
-                <span class="menu-title">Mesajlarım</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-comments-20.png" /></i>
-                <span class="menu-title">Yorumlarım</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-charts-20.png" /></i>
-                <span class="menu-title">Grafik</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-setting-20.png" /></i>
-                <span class="menu-title">Ayarlar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-                <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-open-door-20.png" /></i>
-                <span class="menu-title">Çıkış Yap</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<li class="nav-item nav-profile">
+    <a href="#" class="nav-link">
+        <div class="nav-profile-image">
+            <img src="@ViewBag.p" alt="profile" />
+            <span class="login-status online"></span>
+            <!--change to offline or busy as needed-->
+        </div>
+        <div class="nav-profile-text d-flex flex-column pr-3">
+            <span class="font-weight-medium mb-2">@ViewBag.n</span>
+            <span class="font-weight-normal">Blog Sayısı</span>
+        </div>
+        <span class="badge badge-danger text-white ml-3 rounded">@ViewBag.b</span>
+    </a>
+</li>

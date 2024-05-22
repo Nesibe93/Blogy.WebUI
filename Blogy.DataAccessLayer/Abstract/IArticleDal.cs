@@ -1,4 +1,4 @@
-﻿using Blogy.EntityLayer.Concreate;
+﻿using Blogy.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +12,7 @@ namespace Blogy.DataAccessLayer.Abstract
         List<Article> GetArticleWithWriter();
         Writer GetWriterInfoByArticleWriter(int id);
         List<Article> GetArticlesByWriter(int id);
+        List<Article> GetArticlesByWriterAndCategory(int id);
+        List<Article> GetArticleFilterList(string search);
     }
 }

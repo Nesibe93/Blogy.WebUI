@@ -1,0 +1,34 @@
+﻿@model Blogy.WebUI.Areas.Writer.Models.WeatherViewModel
+
+<div class="col-xl-8 grid-margin stretch-card">
+    <div class="card card-calender">
+        <div class="card-body">
+            <div class="row pt-4">
+                <div class="col-sm-6">
+                    <h3 class="text-white">@Model.current.last_updated.Split(" ")[0]</h3>
+                    <h5 class="text-white m-0"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-humidity-20.png" /> Nem: @Model.current.humidity</h5>
+                    <h5 class="text-white m-0"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-wind-20.png" /> Rüzgar: @Model.current.wind_mph</h5>
+                </div>
+                <div class="col-sm-6 text-sm-right pt-3 pt-sm-0">
+                    <p class="text-white m-0">@Model.current.condition.text<img src="@Model.current.condition.icon" /></p>
+                    <h4 class="text-white">@Model.location.name</h4>
+                    <h3 class="text-white m-0">@Model.current.temp_c °C</h3>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-sm-12">
+                    <ul class="d-flex pl-0 overflow-auto">
+                       @foreach (var item in Model.forecast.forecastday)
+                        {
+                            <li class="weakly-weather-item text-white font-weight-medium text-center active">
+                                    <p class="mb-0">@item.date</p>
+                                <i class=""><img src="@item.day.condition.icon" /></i>
+                                <p class="mb-0">@item.day.maxtemp_c°C</p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

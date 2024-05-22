@@ -1,4 +1,4 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     Layout = null;
 }
@@ -9,7 +9,65 @@
 <body>
     <div class="container-scroller">
         
-        @await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+                <a class="sidebar-brand brand-logo" href="../../index.html"><img src="~/Breeze-Free-Bootstrap-Admin-Template-master/template/assets/images/logo.svg" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="../../index.html"><img src="~/Breeze-Free-Bootstrap-Admin-Template-master/template/assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                @await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/Dashboard/Index">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-dashboard-20.png" /></i>
+                        <span class="menu-title">@localizer["Dashboard"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/Blog/MyBlogList">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-blog-20.png" /></i>
+                        <span class="menu-title">@localizer["Bloglarım"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-tools-20.png" /></i>
+                        <span class="menu-title">@localizer["Destek"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/Message/MessageList">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-message-20.png" /></i>
+                        <span class="menu-title">@localizer["Mesajlarım"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-comments-20.png" /></i>
+                        <span class="menu-title">@localizer["Yorumlarım"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/Chart/Index">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-charts-20.png" /></i>
+                        <span class="menu-title">@localizer["Grafik"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-setting-20.png" /></i>
+                        <span class="menu-title">@localizer["Ayarlar"]</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Writer/">
+                        <i class="menu-icon"><img src="~/breeze-free-bootstrap-admin-template-master/icons8-open-door-20.png" /></i>
+                        <span class="menu-title">@localizer["Çıkış Yap"]</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
        
         <div class="container-fluid page-body-wrapper">
 

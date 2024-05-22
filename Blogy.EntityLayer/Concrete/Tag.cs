@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blogy.EntityLayer.Concreate
+namespace Blogy.EntityLayer.Concrete
 {
     public class Tag
     {

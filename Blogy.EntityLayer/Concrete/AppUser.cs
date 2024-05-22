@@ -1,4 +1,4 @@
-﻿using Blogy.EntityLayer.Concreate;
+﻿using Blogy.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace Blogy.EntityLayer.Concrete
 {
     public class AppUser: IdentityUser<int>
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string ImageUrl { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+        public string? ImageUrl { get; set; }
         public string Description { get; set; }
         public List<Article> Articles { get; set; }
     }

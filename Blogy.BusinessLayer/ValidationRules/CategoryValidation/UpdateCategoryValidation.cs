@@ -1,4 +1,4 @@
-﻿using Blogy.EntityLayer.Concreate;
+﻿using Blogy.EntityLayer.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

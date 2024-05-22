@@ -1,4 +1,4 @@
-﻿@model Blogy.EntityLayer.Concreate.Article
+﻿@model Blogy.EntityLayer.Concrete.Article
 @{
     ViewData["Title"] = "CreateBlog";
     Layout = "~/Areas/Writer/Views/WriterLayout/Index.cshtml";
@@ -23,23 +23,44 @@
                     <p class="card-description">
                         Aşağıdaki alanları eksiksiz doldurarak blog ekleme işlemini tamamlayabilirsiniz.
                     </p>
-                    <form method="post">
+                    <form class="forms-sample" enctype="multipart/form-data" method="post">
                         <label>Blog Başlığı</label>
                         <input type="text" asp-for="Title" class="form-control" />
                         <label>Blog Kategori</label>
-                        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.v,new{@class="form-control"})
-                            <br />
-                            <label>Blog Kapak Fotoğraf Yolu</label>
-                            <input type="text" asp-for="CoverImageUrl" class="form-control" />
-                            <br />
-                            <label>Blog Detayları</label>
-                            <textarea rows="5" class="form-control" asp-for="Description"></textarea>
-                            <br />
-                            <button class="btn btn-info">Bloğu Kaydet</button>
+                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                        <br />
+                        <label>Blog Kapak Fotoğraf Yolu</label>
+                        <input type="text" asp-for="CoverImageUrl" class="form-control" />
+                        <br />
+                        <form method="post">
+                            <textarea id="mytextarea"></textarea>
+                        </form>
+                        <br />
+
+                        <div class="custom-file">
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
+                        <br />
+                        <br />
+                        <button type="submit" class="btn btn-outline-info">Bloğu Kaydet</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script src="~/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea',
+        width: 1120,
+        height: 300,
+        license_key: 'gpl|<your-license-key>'
+    });
+</script>
+
+
+
 

@@ -1,5 +1,4 @@
 ﻿using Blogy.BusinessLayer.Abstract;
-using Blogy.EntityLayer.Concreate;
 using Blogy.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +22,21 @@ namespace Blogy.WebUI.Areas.Writer.Controllers
 
         public async Task<IActionResult> MyBlogList()
         {
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            //ViewBag.id = user.Id+ "" + user.Name + "" + user.Surname;
+            if (User?.Identity?.Name != null)
+            {
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                //ViewBag.id = user.Id+ "" + user.Name + "" + user.Surname;
 
-            var values = _articleService.TGetArticlesByWriter(user.Id);
-            return View(values);
+                var values = _articleService.TGetArticlesByWriter(user.Id);
+                return View(values);
+                // Kullanıcıyla ilgili işlemler
+            }
+            else
+            {
+                // User.Identity.Name null ise yapılacak işlemler (örn. hata mesajı gösterme)
+                throw new ArgumentNullException("Kullanıcı adı boş olamaz");
+            }
+            
         }
         [HttpGet]
         public IActionResult CreateBlog() 

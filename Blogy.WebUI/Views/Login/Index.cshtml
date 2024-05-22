@@ -2,23 +2,51 @@
 @{
     Layout = null;
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-<div class="container">
-    <div class="container">
-        <form method="post">
-            <br />
-            <br />
-            <label>Kullanıcı Adınız</label>
-            <input type="text" class="form-control" asp-for="Username" />
-            <br />
-            <label>Şifreniz</label>
-            <input type="text" class="form-control" asp-for="Password" />
-            <br />
-            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-            <br />
-            <button class="btn btn-info">Giriş yap</button>
-        </form>
+<link href="~/css/login.css" rel="stylesheet" />
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title login">Giriş Yap</div>
+        <div class="title signup">Kayıt Ol</div>
     </div>
-
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Giriş</label>
+            <label for="signup" class="slide signup">Kayıt Ol</label>
+            <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+            <form method="post" action="#" class="login">
+                <div class="field">
+                    <input type="text" placeholder="Kullanıcı Adı" asp-for="Username" required>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Şifre" asp-for="Password" required>
+                </div>
+                <div class="pass-link"><a href="#">Şifrenizi mi unuttunuz?</a></div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Giriş">
+                </div>
+                <div class="signup-link">Beni hatırla? <a href="">Şimdi Kayıt Ol</a></div>
+            </form>
+            <form action="#" class="Kayıt Ol">
+                <div class="field">
+                    <input type="text" asp-for="Username" placeholder="Email Adresiniz" required>
+                </div>
+                <div class="field">
+                    <input type="password" asp-for="Password" placeholder="Şifreniz" required>
+                </div>
+                <div class="field">
+                    <input type="password" asp-for="Password" placeholder="Şifrenizi doğrulayın" required>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Kayıt Ol">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+<script src="~/js/loginregister.js"></script>

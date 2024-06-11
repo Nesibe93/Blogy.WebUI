@@ -1,10 +1,13 @@
 ﻿using Blogy.BusinessLayer.Abstract;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogy.WebUI.Controllers
 {
+	//[AllowAnonymous]
+	[Authorize]
 	public class BlogController : Controller
 	{
 		private readonly UserManager<AppUser> _userManager;

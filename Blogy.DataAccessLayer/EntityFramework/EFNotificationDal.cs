@@ -14,7 +14,11 @@ namespace Blogy.DataAccessLayer.EntityFramework
     {
         BlogyContext context = new BlogyContext();
 
-        public List<Notification> GetListNotification()
+		public EFNotificationDal(BlogyContext context) : base(context)
+		{
+		}
+
+		public List<Notification> GetListNotification()
         {
             var values = context.Notifications.OrderByDescending(x => x.Date).Take(3).ToList();
             return values;

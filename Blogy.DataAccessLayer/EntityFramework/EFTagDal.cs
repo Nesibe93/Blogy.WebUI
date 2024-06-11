@@ -1,4 +1,5 @@
 ﻿using Blogy.DataAccessLayer.Abstract;
+using Blogy.DataAccessLayer.Context;
 using Blogy.DataAccessLayer.Repository;
 using Blogy.EntityLayer.Concrete;
 using System;
@@ -9,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace Blogy.DataAccessLayer.EntityFramework
 {
-    public class EFTagDal : GenericRepository<Tag>, ITagDal
-    {
-    }
+	public class EFTagDal : GenericRepository<Tag>, ITagDal
+	{
+		public EFTagDal(BlogyContext context) : base(context)
+		{
+		}
+	}
 }

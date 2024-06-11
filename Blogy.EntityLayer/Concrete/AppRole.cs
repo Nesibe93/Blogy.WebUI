@@ -9,6 +9,6 @@ namespace Blogy.EntityLayer.Concrete
 {
     public class AppRole: IdentityRole<int>
     {
-        public string Description { get; set; }
+        //public string Description { get; set; }
     }
 }

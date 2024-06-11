@@ -14,12 +14,17 @@ namespace Blogy.DataAccessLayer.EntityFramework
     {
         private readonly BlogyContext _context;
 
-        public EFMessageDal(BlogyContext context)
-        {
-            _context = context;
-        }
+		public EFMessageDal(BlogyContext context) : base(context)
+		{
+			_context = context;
+		}
 
-        public List<Message> GetMessageListByWriter(string p)
+		//public EFMessageDal(BlogyContext context)
+		//{
+		//    _context = context;
+		//}
+
+		public List<Message> GetMessageListByWriter(string p)
         {
             var values = _context.Messages.Where(x => x.ReceiverMail == p).OrderByDescending(z => z.Date).Take(3).ToList();
             return values;

@@ -13,7 +13,12 @@ namespace Blogy.DataAccessLayer.EntityFramework
     public class EFCategoryDal : GenericRepository<Category>, ICategoryDal
     {
         BlogyContext context = new BlogyContext();
-        public int GetCategoryCount()
+
+		public EFCategoryDal(BlogyContext context) : base(context)
+		{
+		}
+
+		public int GetCategoryCount()
         {
             return context.Categories.Count();
         }

@@ -13,7 +13,12 @@ namespace Blogy.DataAccessLayer.EntityFramework
     public class EFCommentDal : GenericRepository<Comment>, ICommentDal
     {
         BlogyContext context = new BlogyContext();
-        public List<Comment> GetCommentsByArticleId(int id)
+
+		public EFCommentDal(BlogyContext context) : base(context)
+		{
+		}
+
+		public List<Comment> GetCommentsByArticleId(int id)
         {
             var values = context.Comments.Where(x => x.ArticleId == id).ToList();
             return values;

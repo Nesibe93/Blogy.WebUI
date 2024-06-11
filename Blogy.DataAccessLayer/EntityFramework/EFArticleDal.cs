@@ -15,7 +15,11 @@ namespace Blogy.DataAccessLayer.EntityFramework
 	{
 		BlogyContext context = new BlogyContext();
 
-        public List<Article> GetArticleFilterList(string search)
+		public EFArticleDal(BlogyContext context) : base(context)
+		{
+		}
+
+		public List<Article> GetArticleFilterList(string search)
         {
             var values = context.Articles.Where(x => 
 			x.Title.ToLower().Contains(search.ToLower()) || 
